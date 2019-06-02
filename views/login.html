@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script src="/static/js/jquery-3.3.1.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body{
+            position: relative;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target="#navbar-div">
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-div">
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                展开
+            </button>
+
+            <a href="index.html" class="navbar-brand"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#first">首页</a></li>
+                <li><a href="#second">国内</a></li>
+                <li><a href="#three">国际</a></li>
+                <li><a href="#">社会</a></li>
+                <li><a href="#">军事</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="javascript:;"><%= phone %></a>
+                </li>
+                <li><a href="/logout">退出登录</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</nav>
+<form id="form1" action="/login" method="post">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">登录页 </h4><small>没有账号？ <a href="LoginUp.html">注册</a></small>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <lable for="inputLogin" class="control-label">用户名:</lable>
+                        <input id="inputLogin" name="inputLogin" type="text" class="form-control" placeholder="admin">
+                    </div>
+                    <div class="form-group">
+                        <lable for="password" class="control-label">密码:</lable>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="password">
+                    </div>
+                    <a href="#">忘记密码？</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="buttonOne">Login in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 hidden-xs hidden-sm hidden-md">
+            <div class="list-group side-bar" id="first">
+                <a href="#" class="list-group-item active list-group-item-info">综合</a>
+                <a href="#" class="list-group-item">电影</a>
+                <a href="#" class="list-group-item">电视剧</a>
+                <a href="#" class="list-group-item">明星</a>
+                <a href="#" class="list-group-item">体育</a>
+                <a href="#" class="list-group-item">游戏</a>
+            </div>
+            <br><br><br><br>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-camera span-picture-header"></span>
+                        <strong>图片新闻</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>PICTURES NEWS</small>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                <div class="thumbnail">
+                                    <img src="/static/imgs/4.jpg" alt="logo">
+                                    <div class="caption">
+                                        <h3>斯里兰卡</h3>
+                                        <p>澳大利亚烛光集会·悼念斯里兰卡爆炸中的遇难者</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                <div class="thumbnail">
+                                    <img src="/static/imgs/6.jpg" alt="logo">
+                                    <div class="caption">
+                                        <h3>加拿大</h3>
+                                        <p>加拿大多伦多中国留学生绑架案第三名嫌犯落网</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                <div class="thumbnail">
+                                    <img src="/static/imgs/8.jpg" alt="logo">
+                                    <div class="caption">
+                                        <h3>金正恩</h3>
+                                        <p>外媒：金正恩称半岛和平取决美态度 与俄协调立场</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2 col-md-2">
+                                <div class="thumbnail">
+                                    <img src="/static/imgs/7.jpg" alt="logo">
+                                    <div class="caption">
+                                        <h3>习近平</h3>
+                                        <p>习近平出席第二届“一带一路”国际合作高峰论坛开幕式并发表主旨演讲</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7 col-md-7">
+            <div class="container-fluid">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active">
+                            <img src="/static/imgs/4.jpg" alt="logo">
+                            <div class="carousel-caption">
+                                <h4>ANYAHUI</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/static/imgs/6.jpg" alt="logo">
+                            <div class="carousel-caption">
+                                <h4>ANYAHUI</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="/static/imgs/5.jpg" alt="logo">
+                            <div class="carousel-caption">
+                                <h4>ANYAHUI</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <hr />
+                <blockquote id="second">
+                    <p>焦点新闻  <span class="glyphicon glyphicon-hand-down"></span><small>FOCAL NEWS</small></p>
+                </blockquote>
+                <hr />
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/5.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headOne">清华校长为普京颁名誉博士证书</h4></a>
+                        2019年4月26日，清华大学校长邱勇在北京友谊宾馆为俄罗斯总统普京颁发了名誉博士学位证书。
+                        <div class="bottomSpan" style="margin-top: 40px">
+                            <a href="#"> <span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/4.jpg" alt="logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headTwo">澳大利亚烛光集会·悼念斯里兰卡爆炸中的遇难者</h4></a>
+                        当地时间2019年4月26日，澳大利亚悉尼，超2千人聚集在悉尼圣s玛丽大教堂参加烛光集会和祷告活动，悼念斯里兰卡复活节爆炸案遇难者。斯里兰卡复活节发生连环爆炸案，斯里兰卡政府由于重复计算部分遇难者，于25日下调了遇难人数，从先前的359人调至253人。
+                        <div class="bottomSpan">
+                            <a href="#"><span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/7.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headThree">习近平出席第二届“一带一路”国际合作高峰论坛开幕式并发表主旨演讲</h4></a>
+                        4月26日，国家主席习近平在北京出席第二届“一带一路”国际合作高峰论坛开幕式，并发表题为《齐心开创共建“一带一路”美好未来》的主旨演讲。 新华社记者鞠鹏摄
+                        <div class="bottomSpan">
+                            <a href="#"><span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/3.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headFour">斯里兰卡财长:爆炸案重创旅游业 或损失15亿美元</h4></a>
+                        海外网4月26日电 据法新社报道，26日，斯里兰卡政府方面表示，此前发生的系列爆炸案重创了本国旅游业，损失可能高达15亿美元。
+                        当地时间26日，斯里兰卡财政部长曼格拉·萨马拉维拉表示，斯里兰卡原本利润丰厚的旅游业因为爆炸案而遭受重创，入境人数下降了30%，旅游业损失大约有15亿美元。“旅游业受（爆炸案）的影响最为严重。”
+                        <div class="bottomSpan">
+                            <a href="#"><span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/8.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headFive">外媒：金正恩称半岛和平取决美态度 与俄协调立场</h4></a>
+                        <p>原标题：外媒：金正恩称半岛和平取决于美态度 与俄协调对美立场</p>
+                        参考消息网4月27日报道 外媒称，朝鲜最高领导人金正恩25日同俄罗斯总统普京举行会谈时表示，朝鲜半岛的和平与安全完全取决于美国今后的态度。
+                        <div class="bottomSpan">
+                            <a href="#"><span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object image_01" src="/static/imgs/6.jpg" alt="Logo">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#"><h4 class="media-heading" id="headSix">加拿大多伦多中国留学生绑架案第三名嫌犯落网</h4></a>
+                        <p>原标题：多伦多中国留学生绑架案第三名嫌犯落网</p>
+                        中新网多伦多4月26日电 （记者 余瑞冬）加拿大安大略省约克区警方于当地时间4月26日披露，大多伦多地区一名中国留学生遭绑架案又一名涉案嫌犯落网。这是目前警方拘捕的该案第三名嫌犯。
+                        <div class="bottomSpan">
+                            <a href="#"><span class="glyphicon glyphicon-pencil"> 王多鱼 ·</span>
+                                25k <span class="glyphicon glyphicon-eye-open"> ·</span>
+                                <span>10分钟前</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="search-bar">
+                <input type="search" class="form-control" placeholder="搜索咨询">
+            </div>
+            <div class="panel panel-default panel-One">
+                <div class="panel-heading clearfix">
+                    <div class="col-xs-3"><span class="glyphicon glyphicon-globe div-span-globe"></span></div>
+                    <div class="col-xs-7"><h3 class="panel-title">国际动态要闻</h3></div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="#">
+                                斯里兰卡枪战：军队突击搜查与嫌犯交火 现场曝光
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li>
+                        <hr />
+                        <li class="list-group-item">
+                            <a href="#">
+                                特朗普在步枪协会年会还没讲话 台下飞来一部手机
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li> <hr />
+                        <li class="list-group-item">
+                            <a href="#">
+                                百事与印度农民的“土豆战争” 突然上演爱与和平
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li> <hr />
+                        <li class="list-group-item">
+                            <a href="#">
+                                加拿大遭洪灾侵袭 渥太华蒙特利尔进入紧急状态
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li> <hr />
+                        <li class="list-group-item">
+                            <a href="#">
+                                特朗普突遭“袭击” 肇事者已被逮捕(图)
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li> <hr />
+                        <li class="list-group-item">
+                            <a href="#">
+                                美科学家发明心脏手术机器人 会“自动驾驶”
+                            </a><br>
+                            <span class="date-Span">4月27日</span>
+                            <a href="#" class="item-a-list"><span class="ping-Span">评论</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <blockquote id="three">
+                        <p>新闻排行</p>
+                    </blockquote>
+                </div>
+                <div class="row">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">点击排行</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">评论排行</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <ol id="ol-One">
+                                <li><a href="#">外媒：斯里兰卡再发三起爆炸</a></li>
+                                <li><a href="#">特朗普：美国将退出联合国武器贸易条约</a></li>
+                                <li><a href="#">美国“断油”与伊朗“断路”的新较量</a></li>
+                                <li><a href="#">特朗普在步枪协会年会还没讲话 台下飞来一部手机</a></li>
+                                <li><a href="#">百事与印度农民的“土豆战争” 突然上演爱与和平</a></li>
+                                <li><a href="#">加拿大遭洪灾侵袭 渥太华蒙特利尔进入紧急状态</a></li>
+                            </ol>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="profile">
+                            <ol id="ol-Two">
+                                <li><a href="#">美科学家发明心脏手术机器人 会“自动驾驶”</a></li>
+                                <li><a href="#">古巴就美制裁向国际社会求援 多国对美国提出批评</a></li>
+                                <li><a href="#">美媒：美空军在太平洋演练“化整为零”</a></li>
+                                <li><a href="#">美媒：北约在罗马尼亚举行最大规模医疗演习</a></li>
+                                <li><a href="#">特朗普谈普京与金正恩会晤：我赞赏普京的声明</a></li>
+                                <li><a href="#">外媒：恐袭事件撼动斯里兰卡政坛 警察总长辞职</a></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
